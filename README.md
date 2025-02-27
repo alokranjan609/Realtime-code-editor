@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Collaborative Code Editor with Real-Time Synchronization and Code Execution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a collaborative code editor that allows multiple users to work together on the same code in real-time. It supports multiple programming languages, provides a code execution feature, and allows users to input standard inputs for their programs. The project leverages **Socket.IO** for real-time synchronization, a code execution API for running programs, and a modern, user-friendly interface.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Real-Time Collaboration:** Multiple users can edit the same code simultaneously with live synchronization.
+- **Multi-Language Support:** Run code in Python, Java, C, C++, and JavaScript.
+- **Code Execution with Input:** Execute code directly from the editor with support for standard input and output.
+- **Room Management:** Users can create and join rooms using unique Room IDs.
+- **Console Output:** Displays the output of code execution in a console-like interface.
+- **Dynamic Language Selection:** Users can switch programming languages from the dropdown menu.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend:** React, React Router, Axios, Toast Notifications.
+- **Backend:** Node.js, Express, Socket.IO.
+- **Code Execution:** JDoodle API (or similar).
+- **Real-Time Communication:** Socket.IO.
+- **Styling:** CSS for a modern and responsive UI.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow these steps to set up the project locally:
 
-### `npm run build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js (v14 or later)
+- npm or Yarn
+- A JDoodle API account (or similar) for code execution
+- React Developer Tools (optional)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the Repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/alokranjan609/Realtime-code-editor
+cd code-editor
+```
+### 2. Install Dependencies
+Install both frontend and backend dependencies:
+```bash
+npm install
+```
+### 3. Configure Environment Variables
+Create a .env file in the root directory for the backend and frontend. Below is an example:
+```bash
+REACT_APP_BACKEND_URL=http://localhost:5000
+```
+### 4. Start the Development Servers
+Start both the backend and frontend servers.
+```bash
+#for backend
+npm run server:dev
+```
+```bash
+#for frontend
+npm run start
+```
+The application will be available at http://localhost:3000.
 
-### `npm run eject`
+### Project Structure
+```bash              
+│   ├── public/              # Static assets
+│   ├── src/                 # React source code
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/           # Page-level components
+│   │   ├── App.css          # CSS files
+│   │   └── App.js           # Main React app
+├── server.js                  # Backend
+├── .env                     # Environment variables
+├── package.json             # Project metadata and dependencies
+└── README.md                # Project documentation
+```
+### Usage
+- Open the application at http://localhost:3000.
+- Enter your username and create or join a room.
+- Write your code in the editor, provide input in the input area, and click Run to execute.
+- View the output in the console output section.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### API Reference
+The project uses the JDoodle API for code execution. Below is an example of a request payload:
+```bash
+{
+  "clientId": "your_client_id",
+  "clientSecret": "your_client_secret",
+  "script": "print(\"Hello, World!\")",
+  "stdin": "input values",
+  "language": "python3",
+  "versionIndex": "3"
+}
+```
+### Contribution
+Contributions are welcome! Follow these steps to contribute:
+- Fork the repository.
+- Create a new branch (git checkout -b feature-branch-name).
+- Make your changes and commit them (git commit -m "Description of changes").
+- Push to the branch (git push origin feature-branch-name).
+- Open a pull request.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
