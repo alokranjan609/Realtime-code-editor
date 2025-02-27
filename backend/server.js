@@ -6,7 +6,7 @@ const path = require('path');
 const cors = require('cors')
 
 const { Server } = require('socket.io');
-const ACTIONS = require('./src/Action');
+const ACTIONS = require('../src/Action');
 const { stdin } = require('process');
 
 app.use(express.json()); // To parse JSON body
@@ -14,8 +14,8 @@ app.use(cors()) // Use this after the variable declaration
 
 
 const JDoodleConfig = {
-  clientId: 'YOUR_CLIENTID',  // Replace with your JDoodle clientId
-  clientSecret: 'YOUR_CLIENT_SECRET',  // Replace with your JDoodle clientSecret
+  clientId: 'ab2f3dfc4e7abb3c017001187af5217c',  // Replace with your JDoodle clientId
+  clientSecret: '58c892bde354b720a0f427bbb691280b8b5fb22125f296fd7ce94a579b8a3a3f',  // Replace with your JDoodle clientSecret
 };
 
 // API route to execute the code
@@ -30,7 +30,7 @@ app.post('/api/execute', async (req, res) => {
       language,
       versionIndex,
     });
-    console.log(response.data);
+    // console.log(response.data);
     res.json(response.data);
   } catch (error) {
     console.error('JDoodle API Error:', error.response?.data || error.message);
