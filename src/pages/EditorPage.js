@@ -57,8 +57,11 @@ const EditorPage = () => {
     }, [reactNavigator, location.state, roomId]);
 
     async function runCode() {
+      
+        
+        
         try {
-            const response = await axios.post('http://localhost:5000/api/execute', {
+            const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/execute`, {
                 script: codeRef.current,
                 language,
                 versionIndex: '3', // Modify based on language version if needed
